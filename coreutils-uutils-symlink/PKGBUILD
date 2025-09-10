@@ -1,11 +1,11 @@
 pkgdesc="(Dangerous) Swap system coreutils with uutils (more than PATH)"
 pkgname=coreutils-uutils-symlink
-pkgver=0.1.0
+pkgver=0.2.0
 pkgrel=16
 arch=('any')
 url='https://uutils.github.io/'
 license=('MIT')
-depends=(uutils-coreutils{,-stty}=$pkgver) # protect user by renaming of uu-coreutils
+depends=(uutils-coreutils)
 makedepends=(grep)
 conflicts=(coreutils b3sum sha3sum)
 provides=(coreutils{,-uutils} b3sum)
