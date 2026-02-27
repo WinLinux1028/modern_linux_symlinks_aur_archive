@@ -1,7 +1,7 @@
 # Maintainer: SovietReimu1228 <reimu@hakurei.win>
 
 pkgname=sudo-rs-symlink
-pkgver=0.2.7
+pkgver=0.2.12
 pkgrel=2
 pkgdesc='(Avoid if app supports PATH) swap sudo with -rs'
 arch=(any)
@@ -13,12 +13,12 @@ conflicts=(sudo)
 source=("https://gitlab.archlinux.org/archlinux/packaging/packages/sudo/-/raw/main/sudo.pam"
 sudoers-rs)
 sha512sums=('SKIP'
-            'd052030d282d64f7db0ca7948d066dc8898677bbf30c554b0d718a6dce295b47a7878f623ee333b1b469fda44707d33ead3dd69b3c56a689273b3508c202ae83')
+            'a80bc9cc19093c042017618be972b57c610baae3b8948470f41f52d54e07c3d5c2447fbcea5695b9c03848a17b1b90925a83998968c9cf0f2e610a7109bd2bb5')
 package (){
-  install -Dm644 sudo.pam "$pkgdir"/etc/pam.d/sudo
+  install -Dm0644 sudo.pam "$pkgdir"/etc/pam.d/sudo
   ln -sf /etc/pam.d/sudo "$pkgdir"/etc/pam.d/sudo-i
   install -Dm0440 sudoers-rs "$pkgdir"/etc/sudoers-rs
-  install -d "$pkgdir"/etc/sudoers.d # remove warning
+  install -dm0750 "$pkgdir"/etc/sudoers.d # remove warning
   install -d "$pkgdir"/usr/{bin,share/man/man8}
   ln -sf /usr/bin/visudo-rs "$pkgdir"/usr/bin/visudo
   ln -sf /usr/bin/sudo-rs "$pkgdir"/usr/bin/sudo

@@ -113,6 +113,15 @@ Defaults secure_path="/usr/local/sbin:/usr/local/bin:/usr/bin"
 # Defaults !pam_silent
 
 ##
+## For sudo-rs
+##
+## To replicate the behavior of the original sudo, disable password feedback.
+## In sudo-rs, this is enabled by default.
+## For more details, please see below:
+## https://github.com/trifectatechfoundation/sudo-rs/issues/1300
+Defaults !pwfeedback
+
+##
 ## Runas alias specification
 ##
 
